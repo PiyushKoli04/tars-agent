@@ -1,8 +1,58 @@
 {
-  "posts": [],
-  "used_photos": [],
+  "posts": [
+    {
+      "id": "card_20261114_093906_b935",
+      "run_id": "run_20261114_093836_40ce",
+      "action": "generate_preview",
+      "status": "pending",
+      "date": "2026-11-14",
+      "slot": "",
+      "slot_key": "",
+      "mode": "approve",
+      "created_at": "2026-11-14T09:42:24Z",
+      "posted_at": null,
+      "headline": "Nvidia allegedly engineered scarcity by funding AI startups to buy its GPUs",
+      "description": "545 points and 325 comments on Hacker News",
+      "caption": "Nvidia allegedly engineered scarcity by funding AI startups to buy its GPUs\n\n545 points and 325 comments on Hacker News\n\n#technews #ai #technology #innovation #future #tech #digital #news #today #brief\n\nPhoto: Aldiyar on Unsplash",
+      "category": "tech_ai",
+      "category_label": "Tech & AI",
+      "style": 10,
+      "style_name": "Brutalist Type",
+      "story_title": "Nvidia allegedly engineered scarcity by funding AI startups to buy its GPUs",
+      "story_url": "https://techpowerup.com/354814/nvidia-allegedly-engineered-scarcity-by-funding-ai-startups-to-buy-its-gpus",
+      "story_source": "Hacker News",
+      "provider": "rule-based",
+      "provider_label": "Rule-based editor",
+      "provider_log": "nvidia: empty response, opencode: HTTP 429, groq: HTTP 404, rule-based: ok",
+      "design_provider": "fallback",
+      "design_provider_label": "Fallback template",
+      "design_log": "nvidia: rejected design (no 1080x1350 canvas rule found), nvidia: timeout, opencode: HTTP 429, fallback template",
+      "image_source": "unsplash",
+      "image_credit": "Context image · Photo by Aldiyar / Unsplash",
+      "image_caption_credit": "Photo: Aldiyar on Unsplash",
+      "image_photo_id": "LbMpHvKkbQg",
+      "image_photographer": "Aldiyar",
+      "image_license": "Unsplash License",
+      "image_query": "server room",
+      "image_log": "unsplash: ok",
+      "png": "card_20261114_093906_b935.png",
+      "jpg": "card_20261114_093906_b935.jpg",
+      "instagram_url": "",
+      "error": "",
+      "error_details": "",
+      "dry_run": false
+    }
+  ],
+  "used_photos": [
+    {
+      "provider": "unsplash",
+      "id": "LbMpHvKkbQg",
+      "credit": "Photo by Aldiyar / Unsplash",
+      "used_at": "2026-11-14T09:42:24Z"
+    }
+  ],
   "meta": {
-    "last_style": null,
-    "last_run": null
+    "last_style": 10,
+    "last_run": "2026-11-14T09:42:24Z"
   }
 }
