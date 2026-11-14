@@ -6,15 +6,41 @@
     {
       "id": "slot_morning",
       "time": "08:00",
-      "days": [0, 1, 2, 3, 4, 5, 6],
+      "days": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
       "enabled": true,
       "mode": "global",
       "topic_override": ""
     },
     {
+      "id": "slot_1500",
+      "time": "15:00",
+      "days": [
+        6
+      ],
+      "enabled": true,
+      "mode": "auto",
+      "topic_override": ""
+    },
+    {
       "id": "slot_evening",
       "time": "18:30",
-      "days": [0, 1, 2, 3, 4, 5, 6],
+      "days": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
       "enabled": true,
       "mode": "global",
       "topic_override": ""
@@ -42,11 +68,22 @@
     "logo_path": ""
   },
   "llm": {
-    "order": ["nvidia", "opencode", "gemini", "groq"],
+    "order": [
+      "nvidia",
+      "opencode",
+      "gemini",
+      "groq"
+    ],
     "disabled": []
   },
   "image": {
-    "order": ["unsplash", "article", "pixabay", "wikimedia", "generated"],
+    "order": [
+      "unsplash",
+      "article",
+      "pixabay",
+      "wikimedia",
+      "generated"
+    ],
     "disabled": [],
     "prefer_article_photo": false,
     "show_credit": true
