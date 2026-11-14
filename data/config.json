@@ -23,6 +23,7 @@
       "id": "slot_1500",
       "time": "15:00",
       "days": [
+        5,
         6
       ],
       "enabled": true,
