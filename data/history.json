@@ -42,6 +42,49 @@
       "error_details": "",
       "dry_run": false,
       "session_refreshed": false
+    },
+    {
+      "id": "card_20261114_133625_628f",
+      "run_id": "run_20261114_133557_6ad4",
+      "action": "post_now",
+      "status": "posted",
+      "date": "2026-11-14",
+      "slot": "",
+      "slot_key": "",
+      "mode": "auto",
+      "created_at": "2026-11-14T13:38:04Z",
+      "posted_at": "2026-11-14T13:38:43Z",
+      "headline": "Meet Nāpōwawāʻenakaulua: The universe’s oldest compact quasar pair",
+      "description": "Meet Nāpōwawāʻenakaulua: The universe’s oldest compact quasar pair Tech Explorist Astronomers stunned after James Webb Space Telescope discovers the earliest pair of black hole-powered quasars",
+      "caption": "Meet Nāpōwawāʻenakaulua: The universe’s oldest compact quasar pair\n\nMeet Nāpōwawāʻenakaulua: The universe’s oldest compact quasar pair Tech Explorist Astronomers stunned after James Webb Space Telescope discovers the earliest pair of black hole-powered quasars\n\n#science #space #research #discovery #nasa #physics #universe #news #today #brief\n\nPhoto: NASA on Unsplash",
+      "category": "science_space",
+      "category_label": "Science & Space",
+      "style": 12,
+      "style_name": "Paper Cut",
+      "story_title": "Meet Nāpōwawāʻenakaulua: The universe’s oldest compact quasar pair",
+      "story_url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQVi1NWTl3MkNscEJDdG1OMlFMSUM2aVB2YzZRNHR6LW1rU3hMX2lfSEZYSVhDajZmWS1maExlRXRGaFBGZU9oQlpON0d5SWVBVy1xRGFKVnZOWGhHX3V0eHhmZlNhTmtKc3d6TzZWdVpja2E1Rng3cldiRXl3Y1RoZEdTcXgxdkF2UlVDb2VMVE9GakRPd2EzUnBFNWtVMXhPXzA4Ng?oc=5",
+      "story_source": "Google News",
+      "provider": "rule-based",
+      "provider_label": "Rule-based editor",
+      "provider_log": "nvidia: invalid output (style must be between 1 and 20), opencode: HTTP 429, groq: HTTP 404, rule-based: ok",
+      "design_provider": "fallback",
+      "design_provider_label": "Fallback template",
+      "design_log": "nvidia: timeout, opencode: HTTP 429, groq: HTTP 404, fallback template",
+      "image_source": "unsplash",
+      "image_credit": "Context image · Photo by NASA / Unsplash",
+      "image_caption_credit": "Photo: NASA on Unsplash",
+      "image_photo_id": "JkaKy_77wF8",
+      "image_photographer": "NASA",
+      "image_license": "Unsplash License",
+      "image_query": "rocket launch",
+      "image_log": "unsplash: ok",
+      "png": "card_20261114_133625_628f.png",
+      "jpg": "card_20261114_133625_628f.jpg",
+      "instagram_url": "https://www.instagram.com/p/DfuVPresWHL/",
+      "error": "",
+      "error_details": "",
+      "dry_run": false,
+      "session_refreshed": false
     }
   ],
   "used_photos": [
@@ -50,10 +93,16 @@
       "id": "LbMpHvKkbQg",
       "credit": "Photo by Aldiyar / Unsplash",
       "used_at": "2026-11-14T09:42:24Z"
+    },
+    {
+      "provider": "unsplash",
+      "id": "JkaKy_77wF8",
+      "credit": "Photo by NASA / Unsplash",
+      "used_at": "2026-11-14T13:38:04Z"
     }
   ],
   "meta": {
-    "last_style": 10,
-    "last_run": "2026-11-14T09:42:24Z"
+    "last_style": 12,
+    "last_run": "2026-11-14T13:38:04Z"
   }
 }
