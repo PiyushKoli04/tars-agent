@@ -15,7 +15,7 @@
         5,
         6
       ],
-      "enabled": true,
+      "enabled": false,
       "mode": "auto",
       "topic_override": ""
     }
