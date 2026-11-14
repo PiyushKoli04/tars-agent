@@ -88,8 +88,28 @@ def test_example_is_ignored_by_git() -> None:
     print("PASS .env is ignored while .env.example is kept")
 
 
+def test_run_loads_env() -> None:
+    from core import run
+
+    called = []
+    original = run.load_env
+    run.load_env = lambda: called.append(True)
+    try:
+        code = run.main(["--action", "tick", "--style", "99"])
+    finally:
+        run.load_env = original
+    assert code == 2, code
+    assert called, "core.run did not call the .env loader"
+    print("PASS core.run loads .env before validating a run")
+
+
 def main() -> None:
-    tests = [test_parser, test_load_precedence, test_example_is_ignored_by_git]
+    tests = [
+        test_parser,
+        test_load_precedence,
+        test_example_is_ignored_by_git,
+        test_run_loads_env,
+    ]
     for test in tests:
         test()
     print(f"\nAll {len(tests)} env self-tests passed.")
