@@ -4,22 +4,6 @@
   "mode": "auto",
   "schedule": [
     {
-      "id": "slot_morning",
-      "time": "08:00",
-      "days": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6
-      ],
-      "enabled": false,
-      "mode": "global",
-      "topic_override": ""
-    },
-    {
       "id": "slot_1500",
       "time": "15:00",
       "days": [
