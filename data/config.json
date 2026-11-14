@@ -65,7 +65,7 @@
     "handle": "@mindtracelabs",
     "accent_color": "#B7A0FF",
     "footer_text": "Daily signals, beautifully told.",
-    "logo_path": ""
+    "logo_path": "docs/brand/logo.png"
   },
   "llm": {
     "order": [
