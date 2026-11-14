@@ -63,7 +63,7 @@
   "brand": {
     "name": "Mindtrace Labs",
     "handle": "@mindtracelabs",
-    "accent_color": "#B7A0FF",
+    "accent_color": "#FFBB5A",
     "footer_text": "Daily signals, beautifully told.",
     "logo_path": "docs/brand/logo.png"
   },
