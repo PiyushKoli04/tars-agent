@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.env
+.env.*
+!.env.example
+ig_session.json
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.log
+.pytest_cache/
+chrome-profile/
+tmp/

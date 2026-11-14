@@ -1,0 +1,58 @@
+{
+  "timezone": "Asia/Kolkata",
+  "posting_paused": false,
+  "mode": "approve",
+  "schedule": [
+    {
+      "id": "slot_morning",
+      "time": "08:00",
+      "days": [0, 1, 2, 3, 4, 5, 6],
+      "enabled": true,
+      "mode": "global",
+      "topic_override": ""
+    },
+    {
+      "id": "slot_evening",
+      "time": "18:30",
+      "days": [0, 1, 2, 3, 4, 5, 6],
+      "enabled": true,
+      "mode": "global",
+      "topic_override": ""
+    }
+  ],
+  "topics": {
+    "tech_ai": true,
+    "business": true,
+    "science_space": true,
+    "world": true,
+    "sports": true,
+    "health": true,
+    "entertainment": true,
+    "environment": true
+  },
+  "prefer_keywords": [],
+  "mute_keywords": [],
+  "style": "auto",
+  "avoid_repeat_style": true,
+  "brand": {
+    "name": "NewsCard Studio",
+    "handle": "@newscardstudio",
+    "accent_color": "#B7A0FF",
+    "footer_text": "Daily signals, beautifully told.",
+    "logo_path": ""
+  },
+  "llm": {
+    "order": ["nvidia", "opencode", "gemini", "groq"],
+    "disabled": []
+  },
+  "image": {
+    "order": ["unsplash", "article", "pixabay", "wikimedia", "generated"],
+    "disabled": [],
+    "prefer_article_photo": false,
+    "show_credit": true
+  },
+  "max_posts_per_day": 2,
+  "news": {
+    "max_age_hours": 24
+  }
+}

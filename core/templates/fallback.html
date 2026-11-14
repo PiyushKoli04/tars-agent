@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1080, initial-scale=1">
+<title>{{BRAND_NAME}} — {{CATEGORY}}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --accent: {{ACCENT}};
+    --ink: #141414;
+    --muted: #66625C;
+    --paper: #F4F0E8;
+    --cream: #FBF8F1;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--paper); }
+  body { font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: var(--ink); }
+  .card {
+    width: 1080px;
+    height: 1350px;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 72px;
+    background: var(--paper);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  .top { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  .dot { width: 12px; height: 12px; border-radius: 50%; background: var(--accent); display: inline-block; }
+  .brand-mini {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--muted);
+    letter-spacing: 0.02em;
+  }
+  .logo { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; display: block; }
+  .photo {
+    margin: 26px 0 34px;
+    height: 520px;
+    border-radius: 26px;
+    overflow: hidden;
+    background: #E8E1F7;
+    flex: 0 0 auto;
+  }
+  .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .photo.no-photo { background: var(--accent); }
+  .copy { display: flex; flex-direction: column; gap: 18px; flex: 1 1 auto; min-height: 0; }
+  .headline {
+    margin: 0;
+    font-family: "Fraunces", Georgia, "Times New Roman", serif;
+    font-weight: 700;
+    font-size: 84px;
+    line-height: 1.03;
+    letter-spacing: -0.025em;
+    overflow-wrap: anywhere;
+  }
+  .description {
+    margin: 0;
+    font-size: 30px;
+    line-height: 1.4;
+    color: var(--muted);
+    max-width: 900px;
+    font-weight: 500;
+  }
+  .bottom {
+    margin-top: 26px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(20, 20, 20, 0.14);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 32px;
+    flex: 0 0 auto;
+  }
+  .handle { font-size: 26px; font-weight: 700; line-height: 1.25; }
+  .footer-text { margin-top: 6px; font-size: 20px; color: var(--muted); line-height: 1.35; }
+  .credit {
+    font-size: 20px;
+    line-height: 1.4;
+    color: var(--muted);
+    text-align: right;
+    max-width: 420px;
+    font-weight: 500;
+  }
+  .mark {
+    position: absolute;
+    right: 72px;
+    top: 72px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <header class="top">
+    <div class="eyebrow"><span class="dot"></span>{{CATEGORY}}</div>
+    <div class="brand-mini">{{LOGO_BLOCK}}{{BRAND_NAME}}</div>
+  </header>
+  <figure class="photo">{{IMAGE_BLOCK}}</figure>
+  <main class="copy">
+    <h1 class="headline">{{HEADLINE}}</h1>
+    <p class="description">{{DESCRIPTION}}</p>
+  </main>
+  <footer class="bottom">
+    <div>
+      <div class="handle">{{HANDLE}}</div>
+      <div class="footer-text">{{FOOTER_TEXT}}</div>
+    </div>
+    <div class="credit">{{CREDIT_BLOCK}}</div>
+  </footer>
+</div>
+</body>
+</html>

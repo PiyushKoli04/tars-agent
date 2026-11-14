@@ -1,0 +1,1 @@
+"""NewsCard Studio core package."""

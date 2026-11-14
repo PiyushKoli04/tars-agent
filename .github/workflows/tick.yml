@@ -1,0 +1,126 @@
+name: NewsCard tick
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+    inputs:
+      action:
+        description: Pipeline action
+        type: choice
+        required: true
+        default: generate_preview
+        options:
+          - tick
+          - generate_preview
+          - post_now
+          - publish_queued
+          - regenerate
+      topic:
+        description: Topic override (blank for auto)
+        type: string
+        required: false
+        default: ""
+      style:
+        description: Style number 1-20 (blank for auto)
+        type: string
+        required: false
+        default: ""
+      queue_id:
+        description: Queue card id for publish_queued or regenerate
+        type: string
+        required: false
+        default: ""
+      dry_run:
+        description: Generate without posting
+        type: boolean
+        required: true
+        default: true
+
+concurrency:
+  group: newscard
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  newscard:
+    name: Run NewsCard Studio
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      ACTION: ${{ github.event.inputs.action || 'tick' }}
+      TOPIC: ${{ github.event.inputs.topic }}
+      STYLE: ${{ github.event.inputs.style }}
+      QUEUE_ID: ${{ github.event.inputs.queue_id }}
+      DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
+      NEWSCARD_STATUS_PUSH: "1"
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Decide whether a slot is due (stdlib only)
+        id: due
+        run: python3 core/scheduler.py --action "$ACTION"
+
+      - name: Set up Python
+        if: steps.due.outputs.due == 'true'
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      - name: Install dependencies
+        if: steps.due.outputs.due == 'true'
+        run: python -m pip install --upgrade pip && pip install -r requirements.txt
+
+      - name: Confirm headless Chrome
+        if: steps.due.outputs.due == 'true'
+        run: google-chrome --version
+
+      - name: Run pipeline
+        if: steps.due.outputs.due == 'true'
+        env:
+          NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+          NVIDIA_MODEL: ${{ secrets.NVIDIA_MODEL }}
+          OPENCODE_API_KEY: ${{ secrets.OPENCODE_API_KEY }}
+          OPENCODE_BASE_URL: ${{ secrets.OPENCODE_BASE_URL }}
+          OPENCODE_MODEL: ${{ secrets.OPENCODE_MODEL }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ secrets.GEMINI_MODEL }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GROQ_MODEL: ${{ secrets.GROQ_MODEL }}
+          UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+          IG_SESSION_JSON: ${{ secrets.IG_SESSION_JSON }}
+          IG_USERNAME: ${{ secrets.IG_USERNAME }}
+          IG_PASSWORD: ${{ secrets.IG_PASSWORD }}
+        run: |
+          set -euo pipefail
+          args=(--action "$ACTION")
+          if [ -n "${TOPIC:-}" ]; then args+=(--topic "$TOPIC"); fi
+          if [ -n "${STYLE:-}" ]; then args+=(--style "$STYLE"); fi
+          if [ -n "${QUEUE_ID:-}" ]; then args+=(--queue-id "$QUEUE_ID"); fi
+          if [ "${DRY_RUN:-false}" = "true" ]; then args+=(--dry-run); fi
+          python -m core.run "${args[@]}"
+
+      - name: Commit data and generated cards
+        if: always() && steps.due.outputs.due == 'true'
+        run: |
+          set -e
+          git config user.name "NewsCard Studio"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A data docs/cards docs/brand
+          if git diff --cached --quiet; then
+            echo "No new data or cards to commit."
+            exit 0
+          fi
+          git commit -m "Update NewsCard data and cards [skip ci]"
+          if ! git push; then
+            git pull --rebase --autostash
+            git push
+          fi

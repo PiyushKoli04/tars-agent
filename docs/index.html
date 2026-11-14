@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#E7DEFC">
+  <meta name="description" content="NewsCard Studio turns live news into editorial Instagram cards.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="NewsCard">
+  <title>NewsCard Studio</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-frame">
+    <div id="app" class="app">
+      <div id="offline-banner" class="offline-banner" role="status" hidden>
+        Offline, showing last saved data
+      </div>
+
+      <section id="onboarding" class="onboarding" aria-label="Setup" hidden></section>
+
+      <div id="shell" class="shell" hidden>
+        <header id="topbar" class="topbar">
+          <div class="topbar-left">
+            <div id="brand-avatar" class="brand-avatar" aria-hidden="true"><span id="brand-initial">N</span></div>
+            <div class="topbar-titles">
+              <strong id="topbar-name">NewsCard Studio</strong>
+              <span id="topbar-handle" class="topbar-handle">@newscardstudio</span>
+            </div>
+          </div>
+          <button id="run-status" class="run-status" type="button" aria-label="Run status">
+            <span class="run-status-dot" id="run-status-dot"></span>
+            <span id="run-status-text">Idle</span>
+          </button>
+        </header>
+
+        <main id="view" class="view" tabindex="-1"></main>
+
+        <div class="tabbar-wrap">
+          <nav class="tabbar" aria-label="Primary navigation" role="tablist">
+            <button class="tab" id="tab-home" type="button" role="tab" data-tab="home" aria-selected="true">
+              <span class="tab-icon"><svg class="icon" aria-hidden="true"><use href="#i-home"></use></svg></span>
+              <span class="tab-label">Home</span>
+            </button>
+            <button class="tab" id="tab-queue" type="button" role="tab" data-tab="queue" aria-selected="false">
+              <span class="tab-icon"><svg class="icon" aria-hidden="true"><use href="#i-layers"></use></svg></span>
+              <span class="tab-label">Queue</span>
+              <span class="tab-badge" id="queue-badge" hidden>0</span>
+            </button>
+            <button class="tab" id="tab-schedule" type="button" role="tab" data-tab="schedule" aria-selected="false">
+              <span class="tab-icon"><svg class="icon" aria-hidden="true"><use href="#i-calendar"></use></svg></span>
+              <span class="tab-label">Schedule</span>
+            </button>
+            <button class="tab" id="tab-settings" type="button" role="tab" data-tab="settings" aria-selected="false">
+              <span class="tab-icon"><svg class="icon" aria-hidden="true"><use href="#i-settings"></use></svg></span>
+              <span class="tab-label">Settings</span>
+            </button>
+          </nav>
+        </div>
+      </div>
+
+      <div id="sheet-root"></div>
+      <div id="viewer-root"></div>
+      <div id="toast-region" class="toast-region" aria-live="polite" aria-atomic="false"></div>
+    </div>
+  </div>
+
+  <svg class="svg-sprite" aria-hidden="true" width="0" height="0">
+    <defs>
+      <symbol id="i-home" viewBox="0 0 24 24">
+        <path d="M4 10.6 12 4l8 6.6V20a1 1 0 0 1-1 1h-4.7v-6.2H9.7V21H5a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="i-layers" viewBox="0 0 24 24">
+        <path d="m12 3 9 5-9 5-9-5z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+        <path d="m3 12 9 5 9-5M3 16l9 5 9-5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="i-calendar" viewBox="0 0 24 24">
+        <rect x="3.5" y="5" width="17" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="1.7"/>
+        <path d="M8 3v4M16 3v4M3.5 10h17" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="i-settings" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="3.1" fill="none" stroke="currentColor" stroke-width="1.7"/>
+        <path d="M19.3 14.4a7.8 7.8 0 0 0 0-4.8l2-1.5-2-3.4-2.3 1a7.7 7.7 0 0 0-4.2-2.4L12.4 1h-4l-.4 2.3a7.7 7.7 0 0 0-4.2 2.4l-2.3-1-2 3.4 2 1.5a7.8 7.8 0 0 0 0 4.8l-2 1.5 2 3.4 2.3-1a7.7 7.7 0 0 0 4.2 2.4L10.4 23h4l.4-2.3a7.7 7.7 0 0 0 4.2-2.4l2.3 1 2-3.4z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="i-chevron-right" viewBox="0 0 24 24">
+        <path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="i-chevron-left" viewBox="0 0 24 24">
+        <path d="m15 5-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="i-close" viewBox="0 0 24 24">
+        <path d="m6 6 12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24">
+        <path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="i-check" viewBox="0 0 24 24">
+        <path d="m5 12.5 4.3 4.3L19 6.8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="i-alert" viewBox="0 0 24 24">
+        <path d="M12 3 22 20H2z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+        <path d="M12 9v5M12 17.2v.1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.7"/>
+        <path d="M12 7.5V12l3.2 2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="i-play" viewBox="0 0 24 24">
+        <path d="M8 5.5v13l11-6.5z" fill="currentColor"/>
+      </symbol>
+      <symbol id="i-pause" viewBox="0 0 24 24">
+        <path d="M8 5h3v14H8zM13 5h3v14h-3z" fill="currentColor"/>
+      </symbol>
+      <symbol id="i-refresh" viewBox="0 0 24 24">
+        <path d="M20 11a8 8 0 1 0-2.4 6.4M20 4v7h-7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="i-trash" viewBox="0 0 24 24">
+        <path d="M4 7h16M9 7V4.5h6V7M6.5 7l.8 13h9.4l.8-13M10 11v5M14 11v5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="i-edit" viewBox="0 0 24 24">
+        <path d="M4 20h4.5L20 8.5a2.1 2.1 0 0 0-3-3L5.5 17zM13.5 7l3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="i-copy" viewBox="0 0 24 24">
+        <rect x="8" y="8" width="12" height="12" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.7"/>
+        <path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="i-external" viewBox="0 0 24 24">
+        <path d="M14 4h6v6M20 4l-9 9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="i-image" viewBox="0 0 24 24">
+        <rect x="3.5" y="4.5" width="17" height="15" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.7"/>
+        <circle cx="9" cy="9.5" r="1.6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <path d="m4.5 17 4.8-4.7 3.4 3.2 2.6-2.5 4.2 4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="i-sparkle" viewBox="0 0 24 24">
+        <path d="M12 3.5c.5 4.7 2.8 7 7.5 7.5-4.7.5-7 2.8-7.5 7.5-.5-4.7-2.8-7-7.5-7.5 4.7-.5 7-2.8 7.5-7.5zM19 3v3M17.5 4.5h3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="i-arrow-up" viewBox="0 0 24 24">
+        <path d="M12 19V5M6 11l6-6 6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="i-arrow-down" viewBox="0 0 24 24">
+        <path d="M12 5v14M6 13l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="i-camera" viewBox="0 0 24 24">
+        <path d="M4 8h3l1.4-2h7.2L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+        <circle cx="12" cy="13" r="3.2" fill="none" stroke="currentColor" stroke-width="1.7"/>
+      </symbol>
+      <symbol id="i-wifi-off" viewBox="0 0 24 24">
+        <path d="m3 3 18 18M9.5 17.3a4 4 0 0 1 5 0M6 13.8a10 10 0 0 1 3-1.7M18 13.8a10 10 0 0 0-2.5-1.5M2 9a15 15 0 0 1 4.2-2.3M22 9a15 15 0 0 0-8.4-2.8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="12" cy="20" r=".8" fill="currentColor"/>
+      </symbol>
+      <symbol id="i-key" viewBox="0 0 24 24">
+        <circle cx="8" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.7"/>
+        <path d="M12 12h9M17 12v3.5M20 12v2.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="i-help" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.7"/>
+        <path d="M9.4 9.3a2.7 2.7 0 1 1 4.3 2.2c-.9.7-1.7 1.2-1.7 2.4M12 17.3v.1" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="i-more" viewBox="0 0 24 24">
+        <circle cx="5" cy="12" r="1.5" fill="currentColor"/>
+        <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+        <circle cx="19" cy="12" r="1.5" fill="currentColor"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

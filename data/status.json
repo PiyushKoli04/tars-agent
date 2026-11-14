@@ -1,0 +1,12 @@
+{
+  "run_id": null,
+  "action": null,
+  "stage": "idle",
+  "step": 0,
+  "provider_used": null,
+  "provider_log": null,
+  "image_source": null,
+  "message": "Waiting for the first run.",
+  "updated_at": null,
+  "ig_session": "unknown"
+}
