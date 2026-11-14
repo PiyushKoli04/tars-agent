@@ -1,7 +1,7 @@
 {
   "timezone": "Asia/Kolkata",
   "posting_paused": false,
-  "mode": "approve",
+  "mode": "auto",
   "schedule": [
     {
       "id": "slot_morning",
