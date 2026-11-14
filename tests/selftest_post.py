@@ -52,8 +52,15 @@ class FakeClient:
         self.login_calls.append(sessionid)
         return True
 
+    def expose(self):
+        raise RuntimeError(
+            "ClientNotFoundError: 404 Client Error: Not Found for url: "
+            "https://i.instagram.com/api/v1/qe/expose/"
+        )
+
     def photo_upload(self, path, caption):
         self.uploads.append((str(path), caption))
+        self.expose()
         return FakeMedia()
 
     def get_settings(self):
@@ -177,6 +184,7 @@ def test_publish_with_saved_session() -> None:
         client = FakeClient.instances[-1]
         assert client.settings is not None
         assert client.uploads and client.uploads[0][1] == "Caption with #hashtags"
+        assert client.expose() == {}
     finally:
         remove_fake_instagrapi(previous)
         restore_env(saved)

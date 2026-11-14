@@ -96,6 +96,11 @@ def _client_for_session(settings: Dict[str, Any]):
     return client
 
 
+def _neutralize_instagram_expose(client) -> None:
+    if callable(getattr(client, "expose", None)):
+        client.expose = lambda: {}
+
+
 def _classify(exc: Exception) -> Tuple[str, str, bool]:
     name = type(exc).__name__
     text = str(exc)
@@ -210,6 +215,7 @@ def publish_card(
             session_problem=True,
         )
     client = _client_for_session(settings)
+    _neutralize_instagram_expose(client)
     base = root or repo_root()
     refreshed = False
     delay_override = os.environ.get("NEWSCARD_POST_DELAY_SECONDS")
