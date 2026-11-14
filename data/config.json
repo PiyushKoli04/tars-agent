@@ -47,7 +47,7 @@
         5,
         6
       ],
-      "enabled": true,
+      "enabled": false,
       "mode": "global",
       "topic_override": ""
     }
