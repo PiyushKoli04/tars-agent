@@ -109,7 +109,7 @@ jobs:
           if [ "${DRY_RUN:-false}" = "true" ]; then args+=(--dry-run); fi
           python -m core.run "${args[@]}"
 
-            - name: Commit data and generated cards
+      - name: Commit data and generated cards
         if: always() && steps.due.outputs.due == 'true'
         run: |
           set -e
