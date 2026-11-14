@@ -94,7 +94,7 @@
     "prefer_article_photo": false,
     "show_credit": true
   },
-  "max_posts_per_day": 2,
+  "max_posts_per_day": 3,
   "news": {
     "max_age_hours": 24
   }
