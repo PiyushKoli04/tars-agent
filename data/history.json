@@ -4,13 +4,13 @@
       "id": "card_20261114_093906_b935",
       "run_id": "run_20261114_093836_40ce",
       "action": "generate_preview",
-      "status": "pending",
+      "status": "posted",
       "date": "2026-11-14",
       "slot": "",
       "slot_key": "",
       "mode": "approve",
       "created_at": "2026-11-14T09:42:24Z",
-      "posted_at": null,
+      "posted_at": "2026-11-14T09:44:51Z",
       "headline": "Nvidia allegedly engineered scarcity by funding AI startups to buy its GPUs",
       "description": "545 points and 325 comments on Hacker News",
       "caption": "Nvidia allegedly engineered scarcity by funding AI startups to buy its GPUs\n\n545 points and 325 comments on Hacker News\n\n#technews #ai #technology #innovation #future #tech #digital #news #today #brief\n\nPhoto: Aldiyar on Unsplash",
@@ -37,10 +37,11 @@
       "image_log": "unsplash: ok",
       "png": "card_20261114_093906_b935.png",
       "jpg": "card_20261114_093906_b935.jpg",
-      "instagram_url": "",
+      "instagram_url": "https://www.instagram.com/p/Dft6fHAsya6/",
       "error": "",
       "error_details": "",
-      "dry_run": false
+      "dry_run": false,
+      "session_refreshed": false
     }
   ],
   "used_photos": [
