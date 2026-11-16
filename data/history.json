@@ -85,6 +85,49 @@
       "error_details": "",
       "dry_run": false,
       "session_refreshed": false
+    },
+    {
+      "id": "card_20261116_102322_a178",
+      "run_id": "run_20261116_102246_56a7",
+      "action": "tick",
+      "status": "posted",
+      "date": "2026-11-16",
+      "slot": "slot_1530",
+      "slot_key": "2026-11-16:slot_1530",
+      "mode": "auto",
+      "created_at": "2026-11-16T10:25:08Z",
+      "posted_at": "2026-11-16T10:25:41Z",
+      "headline": "How to make almost anything",
+      "description": "300 points and 51 comments on Hacker News",
+      "caption": "How to make almost anything\n\n300 points and 51 comments on Hacker News\n\n#technews #ai #technology #innovation #future #tech #digital #news #today #brief\n\nPhoto: Sammyayot254 on Unsplash",
+      "category": "tech_ai",
+      "category_label": "Tech & AI",
+      "style": 20,
+      "style_name": "Gallery White",
+      "story_title": "How to make almost anything",
+      "story_url": "https://pub.cba.mit.edu/863.26/site",
+      "story_source": "Hacker News",
+      "provider": "rule-based",
+      "provider_label": "Rule-based editor",
+      "provider_log": "nvidia: invalid output (style must be between 1 and 20), opencode: HTTP 429, groq: HTTP 404, rule-based: ok",
+      "design_provider": "fallback",
+      "design_provider_label": "Fallback template",
+      "design_log": "nvidia: timeout, opencode: HTTP 429, groq: HTTP 404, fallback template",
+      "image_source": "unsplash",
+      "image_credit": "Context image · Photo by Sammyayot254 / Unsplash",
+      "image_caption_credit": "Photo: Sammyayot254 on Unsplash",
+      "image_photo_id": "knUZi7dzb58",
+      "image_photographer": "Sammyayot254",
+      "image_license": "Unsplash License",
+      "image_query": "server room",
+      "image_log": "unsplash: ok",
+      "png": "card_20261116_102322_a178.png",
+      "jpg": "card_20261116_102322_a178.jpg",
+      "instagram_url": "https://www.instagram.com/p/DfzIv6XM2lQ/",
+      "error": "",
+      "error_details": "",
+      "dry_run": false,
+      "session_refreshed": false
     }
   ],
   "used_photos": [
@@ -99,10 +142,16 @@
       "id": "JkaKy_77wF8",
       "credit": "Photo by NASA / Unsplash",
       "used_at": "2026-11-14T13:38:04Z"
+    },
+    {
+      "provider": "unsplash",
+      "id": "knUZi7dzb58",
+      "credit": "Photo by Sammyayot254 / Unsplash",
+      "used_at": "2026-11-16T10:25:08Z"
     }
   ],
   "meta": {
-    "last_style": 12,
-    "last_run": "2026-11-14T13:38:04Z"
+    "last_style": 20,
+    "last_run": "2026-11-16T10:25:08Z"
   }
 }
