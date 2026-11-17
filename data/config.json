@@ -59,7 +59,7 @@
       "generated"
     ],
     "disabled": [],
-    "prefer_article_photo": true,
+    "prefer_article_photo": false,
     "show_credit": false
   },
   "max_posts_per_day": 4,
