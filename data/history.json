@@ -133,13 +133,13 @@
       "id": "card_20261117_085119_3d02",
       "run_id": "run_20261117_085028_6b0c",
       "action": "generate_preview",
-      "status": "pending",
+      "status": "posted",
       "date": "2026-11-17",
       "slot": "",
       "slot_key": "",
       "mode": "approve",
       "created_at": "2026-11-17T08:52:35Z",
-      "posted_at": null,
+      "posted_at": "2026-11-17T08:55:52Z",
       "headline": "40-domain study: 80% of Shopify stores expose /API/ucp/MCP, 0% /agents.md",
       "description": "4 points and 0 comments on Hacker News",
       "caption": "40-domain study: 80% of Shopify stores expose /API/ucp/MCP, 0% /agents.md\n\n4 points and 0 comments on Hacker News\n\n#technews #ai #technology #innovation #future #tech #digital #news #today #brief",
@@ -166,10 +166,11 @@
       "image_log": "article: disabled, unsplash: no suitable photo, pixabay: no key, wikimedia: no PD/CC0 result, generated: ok",
       "png": "card_20261117_085119_3d02.png",
       "jpg": "card_20261117_085119_3d02.jpg",
-      "instagram_url": "",
+      "instagram_url": "https://www.instagram.com/p/Df1jQ4GsCxh/",
       "error": "",
       "error_details": "",
-      "dry_run": false
+      "dry_run": false,
+      "session_refreshed": false
     }
   ],
   "used_photos": [
