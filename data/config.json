@@ -60,7 +60,7 @@
     ],
     "disabled": [],
     "prefer_article_photo": true,
-    "show_credit": true
+    "show_credit": false
   },
   "max_posts_per_day": 4,
   "news": {
