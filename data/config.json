@@ -1,24 +1,8 @@
 {
-  "timezone": "Asia/Kolkata",
+  "timezone": "Asia/Calcutta",
   "posting_paused": false,
   "mode": "auto",
   "schedule": [
-    {
-      "id": "slot_1530",
-      "time": "15:30",
-      "days": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6
-      ],
-      "enabled": true,
-      "mode": "auto",
-      "topic_override": ""
-    },
     {
       "id": "slot_1830",
       "time": "18:30",
@@ -32,7 +16,7 @@
         6
       ],
       "enabled": true,
-      "mode": "auto",
+      "mode": "global",
       "topic_override": ""
     }
   ],
