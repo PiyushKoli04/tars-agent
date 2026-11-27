@@ -1,3 +1,39 @@
 {
-  "items": []
+  "items": [
+    {
+      "id": "card_20261127_075245_6147",
+      "history_id": "card_20261127_075245_6147",
+      "status": "pending",
+      "created_at": "2026-11-27T07:54:36Z",
+      "updated_at": "2026-11-27T07:54:38Z",
+      "headline": "The group chat where your AI talks behind your back",
+      "description": "60 points and 14 comments on Hacker News",
+      "caption": "The group chat where your AI talks behind your back\n\n60 points and 14 comments on Hacker News\n\n#technews #ai #technology #innovation #future #tech #digital #news #today #brief",
+      "category": "tech_ai",
+      "category_label": "Tech & AI",
+      "style": 6,
+      "style_name": "Swiss Grid",
+      "story_title": "The group chat where your AI talks behind your back",
+      "story_url": "https://construct22.com",
+      "story_source": "Hacker News",
+      "image_query": "server room",
+      "image_source": "generated",
+      "image_credit": "",
+      "image_caption_credit": "",
+      "image_photo_id": "",
+      "image_log": "article: disabled, unsplash: no suitable photo, pixabay: no key, wikimedia: no PD/CC0 result, generated: ok",
+      "provider": "rule-based",
+      "provider_log": "nvidia: invalid output (image_query must be 2-4 words), opencode: HTTP 429, groq: HTTP 404, rule-based: ok",
+      "design_provider": "fallback",
+      "design_log": "nvidia: timeout, opencode: HTTP 429, groq: HTTP 404, fallback template",
+      "png": "card_20261127_075245_6147.png",
+      "jpg": "card_20261127_075245_6147.jpg",
+      "slot_key": "",
+      "date": "2026-11-27",
+      "run_id": "run_20261127_075212_1338",
+      "mode": "approve",
+      "dry_run": false,
+      "error": ""
+    }
+  ]
 }

@@ -214,6 +214,48 @@
       "error_details": "",
       "dry_run": false,
       "session_refreshed": false
+    },
+    {
+      "id": "card_20261127_075245_6147",
+      "run_id": "run_20261127_075212_1338",
+      "action": "generate_preview",
+      "status": "pending",
+      "date": "2026-11-27",
+      "slot": "",
+      "slot_key": "",
+      "mode": "approve",
+      "created_at": "2026-11-27T07:54:36Z",
+      "posted_at": null,
+      "headline": "The group chat where your AI talks behind your back",
+      "description": "60 points and 14 comments on Hacker News",
+      "caption": "The group chat where your AI talks behind your back\n\n60 points and 14 comments on Hacker News\n\n#technews #ai #technology #innovation #future #tech #digital #news #today #brief",
+      "category": "tech_ai",
+      "category_label": "Tech & AI",
+      "style": 6,
+      "style_name": "Swiss Grid",
+      "story_title": "The group chat where your AI talks behind your back",
+      "story_url": "https://construct22.com",
+      "story_source": "Hacker News",
+      "provider": "rule-based",
+      "provider_label": "Rule-based editor",
+      "provider_log": "nvidia: invalid output (image_query must be 2-4 words), opencode: HTTP 429, groq: HTTP 404, rule-based: ok",
+      "design_provider": "fallback",
+      "design_provider_label": "Fallback template",
+      "design_log": "nvidia: timeout, opencode: HTTP 429, groq: HTTP 404, fallback template",
+      "image_source": "generated",
+      "image_credit": "",
+      "image_caption_credit": "",
+      "image_photo_id": "",
+      "image_photographer": "",
+      "image_license": "Generated",
+      "image_query": "server room",
+      "image_log": "article: disabled, unsplash: no suitable photo, pixabay: no key, wikimedia: no PD/CC0 result, generated: ok",
+      "png": "card_20261127_075245_6147.png",
+      "jpg": "card_20261127_075245_6147.jpg",
+      "instagram_url": "",
+      "error": "",
+      "error_details": "",
+      "dry_run": false
     }
   ],
   "used_photos": [
@@ -243,7 +285,7 @@
     }
   ],
   "meta": {
-    "last_style": 3,
-    "last_run": "2026-11-27T07:51:05Z"
+    "last_style": 6,
+    "last_run": "2026-11-27T07:54:36Z"
   }
 }
